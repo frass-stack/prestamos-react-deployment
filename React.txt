@@ -1,0 +1,64 @@
+-Es una libreria de JS para crear interfaces de usuario para App's Web
+-Lo que es visible es manejado por React
+-Desarrollada por Facebook
+-Corre en el Cliente, no necesita una respuesta de servidor.
+-Permite ordenar el proyecto por medio de los componentes, que son funciones o piezas de codigo reutilizables.
+
+//React esta en favor de la separacion
+-Con componentes por ejemplo para:
+-> Header, Nav, Sidebar, Principal, Productos...y mismos esos componentes pueden tener otros componentes, como productos dentro de Producto.
+
+
+//proyecto de prestamos
+comprobamos las versiones de node y npm
+nos situamos en el Desktop (usando la terminal) y utilizamos el comando 'npx create-react-app nombreProyecto'
+entramos al proyecto con 'cd nombreProyecto/' y lo iniciamos con npm start
+
+  Local:            http://localhost:3001 (un servidor local)   
+  On Your Network:  http://192.168.1.103:3001 (para visualizar en otro dispositivo conectado a la misma red)    	
+
+//Ejemplo de Componente sencillo
+-creamos la carpeta 'componentes' en src.
+-creamos el componente.js, en este caso el Header.js:
+
+import React from 'react';
+
+function Header(){
+    return (
+        <h1>Hola mundo</h1>
+    )
+}
+
+export default Header;
+
+-Lo importamos en el app.js con: import Header from './componentes/Header';
+-Para usar el componente, tenemos la siguiente sintaxis:
+
+//mediante function declaration
+function App() {
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  );
+}
+
+//Para pasar datos entre los componentes usamos los 'props'.
+-Es importante definir que los props no pueden pasar de un hijo a un padre. Siempre es de Padre-Hijo el pasaje
+
+//otra forma es la function expretion
+
+sfc nos arma el cuerpo de la declaration;
+si no vamos a crear mas props podemos prescindir del return, mismo si solo devolvemos una prop, podemos prescindir
+del fragment
+
+const Header = ({ titulo ) => {
+    <h1>{ titulo }</h1>
+}
+
+//State, que se usa con todo lo que sea interactivo
+-Se importa el useState.
+-Luego 'const [state, setstate] = useState(initialState)'
+
+//Deployment
+-npm run build (generamos la carpeta build) y es la que subimos al servidor
